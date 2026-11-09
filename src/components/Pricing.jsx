@@ -5,12 +5,12 @@ import { Reveal } from './ui'
 function Plan({ plan, delay }) {
   const dark = plan.popular
   return (
-    <Reveal delay={delay} className={dark ? 'lg:-mt-10' : ''}>
+    <Reveal delay={delay} className={dark ? 'h-full lg:-mt-3' : 'h-full lg:mt-0'}>
       <div
-        className={`relative rounded-2xl px-9 pt-12 pb-11 text-center transition-transform duration-500 hover:-translate-y-2 ${
+        className={`relative flex h-full flex-col rounded-2xl px-9 pt-12 pb-11 text-center transition-transform duration-500 hover:-translate-y-2 ${
           dark
             ? 'bg-[radial-gradient(at_top_center,#101e8a_0%,#010630_100%)] text-white shadow-[0_30px_70px_rgba(16,30,138,0.35)]'
-            : 'border border-line bg-white shadow-[0_20px_50px_rgba(1,6,48,0.06)]'
+            : 'border border-[#8f9bff] bg-white shadow-[0_20px_50px_rgba(1,6,48,0.06)]'
         }`}
       >
         {plan.badge && (
@@ -24,9 +24,9 @@ function Plan({ plan, delay }) {
         </p>
         <p className={`mt-2.5 text-base ${dark ? 'text-white/60' : 'text-body'}`}>{plan.unit}</p>
 
-        <ul className="mt-11 space-y-[18px] text-left">
+        <ul className="mt-11 flex-1 space-y-[18px] text-left">
           {plan.features.map((f) => (
-            <li key={f} className={`flex items-center gap-3 text-base ${dark ? 'font-medium text-white' : 'text-body'}`}>
+            <li key={f} className={`flex items-center gap-3 text-base xl:whitespace-nowrap ${dark ? 'font-medium text-white' : 'text-body'}`}>
               <span
                 className={`grid h-5 w-5 shrink-0 place-items-center rounded-full ${
                   plan.good ? 'bg-chip text-accent' : 'bg-[#4a1d25] text-[#ff8a9a]'
@@ -75,7 +75,7 @@ export default function Pricing() {
           </ol>
         </div>
 
-        <div className="grid gap-12 sm:grid-cols-2 sm:gap-[30px] lg:pt-10">
+        <div className="grid items-stretch gap-12 sm:grid-cols-2 sm:gap-[30px] lg:pt-10">
           {plans.map((p, i) => (
             <Plan key={p.name} plan={p} delay={i * 150} />
           ))}

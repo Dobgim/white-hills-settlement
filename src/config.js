@@ -202,7 +202,7 @@ export const situations = {
 }
 
 export const process = {
-  title: 'It’s easy to get started',
+  title: 'It’s easy to work with Us',
   text: 'Most disputes follow the same pattern. Gather your evidence, contact the merchant, then go to your bank or card provider. If that fails, escalate to the free official complaint service in your country.',
   steps: ['Read the Guide', 'Write Your Letter', 'Contact Your Bank'],
 }
@@ -218,31 +218,31 @@ export const plans = [
       'Dispute letter builder',
       'Deadline checker',
       'Where-to-report directory',
-      'No account or sign-up needed',
+      'No sign-up needed',
     ],
     button: 'Read the Guides',
     href: '/services',
   },
   {
-    name: 'Recovery Scam Red Flags',
+    name: 'Red Flags',
     price: 'Stop',
-    unit: 'if someone does any of these',
+    unit: 'if anyone does these',
     good: false,
     popular: true,
     badge: 'WARNING',
     features: [
-      'Asks for an up-front “recovery” fee',
-      'Guarantees to get your money back',
-      'Asks for card numbers, PINs or passwords',
-      'Wants you to open an account or deposit funds',
-      'Claims to work with police or regulators',
+      'Asks for an up-front fee',
+      'Guarantees your money back',
+      'Asks for your card PIN',
+      'Wants you to deposit funds',
+      'Claims to be the police',
     ],
-    button: 'Learn the warning signs',
+    button: 'Learn the Signs',
     href: '/services#redflags',
   },
 ]
 
-export const planNote = 'We never ask for card numbers, PINs or passwords.'
+export const planNote = 'No fees. No bank details.'
 
 export const faqs = [
   {
