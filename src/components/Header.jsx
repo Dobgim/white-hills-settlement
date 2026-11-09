@@ -55,12 +55,12 @@ export default function Header() {
                       )}
                     </a>
                     {item.children && (
-                      <ul className="invisible absolute top-full left-0 min-w-[220px] translate-y-3 rounded-xl bg-white p-2 opacity-0 shadow-[0_20px_50px_rgba(1,6,48,0.18)] transition-all duration-300 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+                      <ul className="invisible absolute top-full left-0 min-w-[275px] translate-y-3 rounded-2xl bg-white px-2 py-3 opacity-0 shadow-[0_20px_50px_rgba(1,6,48,0.18)] transition-all duration-300 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
                         {item.children.map((c) => (
                           <li key={c.label}>
                             <a
                               href={c.href}
-                              className="block rounded-lg px-4 py-2.5 text-[15px] font-medium text-primary transition-colors hover:bg-soft hover:text-accent"
+                              className="block rounded-lg px-6 py-3 text-[18px] font-medium tracking-[-0.02em] text-black transition-colors hover:text-accent"
                             >
                               {c.label}
                             </a>
