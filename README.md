@@ -1,8 +1,8 @@
-# Northgate Advisory
+# RefundRight
 
-A multi-page website for an accounting, tax and advisory firm, built with React 19, Vite 7 and Tailwind CSS v4.
+A free, independent consumer guide to getting money back the right way: refunds, chargebacks, billing errors, unauthorised payments and bank-transfer scams. Built with React 19, Vite 7, React Router 7 and Tailwind CSS v4.
 
-"Northgate Advisory" is a placeholder brand. Shared business details and home-page content live in [`src/config.js`](src/config.js); inner-page content lives in [`src/content.js`](src/content.js).
+RefundRight is **information only**. It never charges fees, holds money, opens accounts or asks for card numbers, PINs or bank logins, and every route it describes goes through the reader's own bank or an official body. Keep it that way.
 
 ## Pages
 
@@ -10,15 +10,21 @@ A multi-page website for an accounting, tax and advisory firm, built with React 
 | --- | --- |
 | `/` | Home |
 | `/about` | About |
-| `/services` | Services |
-| `/login` | Client portal sign-in |
-| `/register` | Client portal sign-up (3 steps) |
-| `/terms-and-conditions` | Terms & Conditions |
-| `/contact` | Contact (form opens the visitor's email app) |
+| `/services` | Guides for each payment type, the 4-step process, and where to report by country |
+| `/dispute-letter` | Dispute Letter Builder (runs in the browser; copy, download or print) |
+| `/deadline-checker` | Typical time limits by country, payment method and problem |
+| `/terms-and-conditions` | Terms, disclaimer and privacy |
+| `/contact` | Contact form (opens the visitor's email app) |
 
-The Login and Register forms aren't connected to a backend. Until you set `portalUrl` in `src/config.js`, submitting them shows a "portal not connected yet" notice. No passwords are stored or sent anywhere.
+Menu: Home · About · Services · Refund ▾ (Dispute Letter, Deadline Checker) · Terms & Conditions · Contact, with the **Refund** button on the right.
 
-Hosting: `vercel.json`, `public/_redirects` (Netlify) and `public/.htaccess` (Apache/Hostinger) make deep links like `/about` work.
+## Content
+
+- `src/config.js`: brand, menu and Home-page content
+- `src/content.js`: About, Guides, tools, Contact and Terms content
+- `src/pages/DeadlineChecker.jsx`: the time-limit rules (in the `deadlines()` function)
+
+The rules and time limits are summarised from public consumer-protection guidance (US FCBA/EFTA, UK Section 75, UK and EU payment rules, UK APP reimbursement, PayPal Buyer Protection). They change. Review them regularly, and keep the "confirm with your provider" wording.
 
 ## Run
 
@@ -28,33 +34,10 @@ npm run dev      # http://localhost:5310
 npm run build    # production build in dist/
 ```
 
+Hosting: `vercel.json`, `public/_redirects` (Netlify) and `public/.htaccess` (Apache/Hostinger) make deep links like `/about` work.
+
 ## Before going live
 
-- Replace the name, phone, email and address in `src/config.js`.
-- Replace the hero stats with numbers you can back up.
-- Replace the sample testimonials with real client quotes (with permission), then set `testimonialsAreSamples` to `false`.
-- Swap the partner logos in `public/images/` (`u.webp`, `vivio.webp`, `rech.webp`, `hightech.webp`, `minty.webp`) for real ones, or remove the strip.
-- Set your own prices in `plans`.
-- Point `bookingUrl` at your booking page or contact form.
+- Set your real contact email in `src/config.js`.
 - Have the Terms reviewed by a legal professional, then set `termsAreTemplate` to `false` in `src/content.js`.
-- Replace the About-page sample figures and set `barsAreSamples` to `false`.
-- Connect a real client portal and set `portalUrl`.
-
-## Structure
-
-```
-src/
-  config.js            all site content
-  index.css            theme tokens (colours, font) and shared utilities
-  components/
-    Header.jsx         announcement bar, nav, mobile drawer
-    Hero.jsx           background photo, headline, animated stats
-    Impact.jsx         headline + logo strip
-    Services.jsx       service cards + CTA card
-    About.jsx          framed photo, client types, founder quote band
-    Testimonials.jsx   masonry review cards
-    Pricing.jsx        process steps + plans
-    Faq.jsx            accessible accordion
-    Footer.jsx         contact CTA + footer links
-    ui.jsx             Reveal, CountUp, Logo, Stars, Slant helpers
-```
+- Double-check the guide and deadline figures for the countries you serve.

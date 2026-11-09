@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
-import { ChevronDown, Menu, UserRound, X } from 'lucide-react'
-import { nav, site } from '../config'
+import { ChevronDown, HandCoins, Menu, X } from 'lucide-react'
+import { headerCta, nav, site } from '../config'
 import { Logo } from './ui'
 
 function isActive(item, pathname) {
@@ -74,12 +74,12 @@ export default function Header() {
             </nav>
 
             <a
-              href="/login"
+              href={headerCta.href}
               className="group hidden shrink-0 items-center gap-5 rounded-lg bg-black py-1.5 pr-1.5 pl-5 text-base font-semibold tracking-[-0.02em] text-white transition-colors hover:bg-accent sm:flex"
             >
-              Client Login
+              {headerCta.label}
               <span className="grid h-9 w-9 place-items-center rounded-full bg-white text-primary transition-transform group-hover:rotate-12">
-                <UserRound className="h-4 w-4" strokeWidth={1.75} />
+                <HandCoins className="h-4 w-4" strokeWidth={1.75} />
               </span>
             </a>
 
@@ -139,12 +139,10 @@ export default function Header() {
             </li>
           ))}
         </ul>
-        <a href="/login" onClick={() => setOpen(false)} className="btn-accent mt-6 w-full">
-          Client Login
+        <a href={headerCta.href} onClick={() => setOpen(false)} className="btn-accent mt-6 w-full">
+          {headerCta.label}
         </a>
-        <a href={site.phoneHref} className="mt-4 block text-center text-sm text-white/60">
-          {site.phone}
-        </a>
+        <p className="mt-4 text-center text-xs text-white/50">{site.disclaimer}</p>
       </aside>
     </>
   )

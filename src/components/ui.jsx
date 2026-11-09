@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { site } from '../config'
 
 function useInView(options = { threshold: 0.15 }) {
   const ref = useRef(null)
@@ -78,12 +79,12 @@ export function Logo({ className = '', compact = false }) {
         </defs>
         <circle cx="32" cy="32" r="29" fill="none" stroke="url(#lg-silver)" strokeWidth="2.5" />
         <path d="M18 47V29a14 14 0 0 1 28 0v18" fill="none" stroke="url(#lg-silver)" strokeWidth="4" strokeLinecap="round" />
-        <path d="M26 47V32l12 15V32" fill="none" stroke="url(#lg-silver)" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M39 30h-9a6 6 0 0 0 0 12h7M35 26l4 4-4 4" fill="none" stroke="url(#lg-silver)" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
       {!compact && (
         <span className="flex flex-col leading-none">
-          <span className="text-grad-light text-[22px] font-bold tracking-[0.12em]">NORTHGATE</span>
-          <span className="mt-1 text-[10px] font-semibold tracking-[0.5em] text-white/60">ADVISORY</span>
+          <span className="text-grad-light text-[20px] font-bold tracking-[0.1em]">{site.logoTop}</span>
+          <span className="mt-1 text-[9px] font-semibold tracking-[0.42em] text-white/60">{site.logoBottom}</span>
         </span>
       )}
     </span>

@@ -1,5 +1,5 @@
-import { Check } from 'lucide-react'
-import { planNote, plans, process, site } from '../config'
+import { Check, X } from 'lucide-react'
+import { planNote, plans, process } from '../config'
 import { Reveal } from './ui'
 
 function Plan({ plan, delay }) {
@@ -13,9 +13,9 @@ function Plan({ plan, delay }) {
             : 'border border-line bg-white shadow-[0_20px_50px_rgba(1,6,48,0.06)]'
         }`}
       >
-        {dark && (
+        {plan.badge && (
           <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-[#ffd75e] px-3.5 py-1.5 text-[13px] leading-none font-semibold tracking-[0.04em] text-primary">
-            POPULAR
+            {plan.badge}
           </span>
         )}
         <h3 className={`text-[22px] font-semibold tracking-[-0.03em] ${dark ? 'text-white' : 'text-primary'}`}>{plan.name}</h3>
@@ -29,18 +29,18 @@ function Plan({ plan, delay }) {
             <li key={f} className={`flex items-center gap-3 text-base ${dark ? 'font-medium text-white' : 'text-body'}`}>
               <span
                 className={`grid h-5 w-5 shrink-0 place-items-center rounded-full ${
-                  dark ? 'bg-[#1d4a3d] text-[#4ade80]' : 'bg-chip text-accent'
+                  plan.good ? 'bg-chip text-accent' : 'bg-[#4a1d25] text-[#ff8a9a]'
                 }`}
               >
-                <Check className="h-3 w-3" strokeWidth={3} />
+                {plan.good ? <Check className="h-3 w-3" strokeWidth={3} /> : <X className="h-3 w-3" strokeWidth={3} />}
               </span>
               {f}
             </li>
           ))}
         </ul>
 
-        <a href="/register" className="btn-accent mt-12 w-full">
-          Select Plan
+        <a href={plan.href} className="btn-accent mt-12 w-full">
+          {plan.button}
         </a>
         <p className={`mt-6 text-sm ${dark ? 'text-white/60' : 'text-body'}`}>
           <span className="text-red-500">*</span> {planNote}
@@ -52,7 +52,7 @@ function Plan({ plan, delay }) {
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="pt-20 pb-20 lg:pt-[110px] lg:pb-[130px]">
+    <section id="free" className="pt-20 pb-20 lg:pt-[110px] lg:pb-[130px]">
       <div className="container-site grid gap-16 lg:grid-cols-[minmax(0,1fr)_minmax(0,770px)] lg:gap-12 xl:gap-[90px]">
         <div className="lg:pt-10 lg:pl-3">
           <Reveal>

@@ -1,28 +1,22 @@
 /**
- * All business content for the site lives here.
+ * Shared site details and Home-page content.
+ * Inner-page content lives in content.js.
  *
- * "Northgate Advisory" is a placeholder brand. Before going live, replace:
- *   - name, contact details, address
- *   - stats (use only numbers you can back up)
- *   - testimonials (use real client quotes, with their permission) and then
- *     set `testimonialsAreSamples` to false so the "sample" caption disappears
- *   - partner logos in /public/images (u.webp, vivio.webp ...) with real ones
+ * RefundRight is a free, independent information site. It never charges
+ * fees, never holds money and never asks for card or bank details. Keep it
+ * that way: anyone charging up-front fees to "recover" money is a red flag.
  */
 
 export const site = {
-  name: 'Northgate Advisory',
-  shortName: 'Northgate',
-  tagline: 'Accounting, tax and advisory for growing businesses.',
-  announcement: 'Now booking consultations for the 2027 tax season.',
-  phone: '+1 (555) 010-2040',
-  phoneHref: 'tel:+15550102040',
-  email: 'hello@northgate-advisory.example',
-  address: '120 Placeholder Street, Suite 400, Your City',
-  hours: 'Mon – Fri, 8 am – 6 pm',
-  bookingUrl: '/contact',
-  // Set this to your real client-portal sign-in URL when you have one.
-  // While it is empty, the Login / Register forms show a "not connected yet" notice.
-  portalUrl: '',
+  name: 'RefundRight',
+  shortName: 'RefundRight',
+  logoTop: 'REFUNDRIGHT',
+  logoBottom: 'CONSUMER GUIDE',
+  tagline: 'Free, independent guidance on getting your money back the right way.',
+  announcement: 'Free guidance, always. We never charge fees or ask for your bank details.',
+  email: 'hello@refundright.example',
+  hours: 'We reply to emails Mon – Fri',
+  disclaimer: 'General information only, not legal or financial advice.',
   year: new Date().getFullYear(),
 }
 
@@ -31,240 +25,249 @@ export const nav = [
   { label: 'About', href: '/about' },
   { label: 'Services', href: '/services' },
   {
-    label: 'Client Portal',
-    href: '/login',
+    label: 'Refund',
+    href: '/dispute-letter',
     children: [
-      { label: 'Login', href: '/login' },
-      { label: 'Register', href: '/register' },
+      { label: 'Dispute Letter', href: '/dispute-letter' },
+      { label: 'Deadline Checker', href: '/deadline-checker' },
     ],
   },
   { label: 'Terms & Conditions', href: '/terms-and-conditions' },
   { label: 'Contact', href: '/contact' },
 ]
 
+export const headerCta = { label: 'Refund', href: '/dispute-letter' }
+
 export const hero = {
-  badge: "Hi, Let's work together",
-  titleTop: 'Clear Numbers,',
-  titleBottom: 'Confident Decisions',
-  text: 'We help small businesses, freelancers and families keep tidy books, file accurate taxes on time and plan their next move with a clear view of their finances.',
-  cta: 'Get Started',
-  // Sample figures for layout. Replace with your own verified numbers.
+  badge: "Hi, let's get your money back",
+  titleTop: 'Get Your Money',
+  titleBottom: 'Back the Right Way',
+  text: 'Charged twice, sold something that never arrived, or hit by a payment you didn’t make? Learn how refunds, disputes and chargebacks work, and claim directly through your own bank or card provider, for free.',
+  cta: 'Start Here',
+  ctaHref: '/services',
+  // Well-known reference figures (US rules shown; see the Guides page for details).
   stats: [
-    { value: 15, decimals: 0, prefix: '', suffix: '+', label: 'Years of Experience' },
-    { value: 1.2, decimals: 1, prefix: '', suffix: 'K', label: 'Returns Filed' },
-    { value: 350, decimals: 0, prefix: '', suffix: '+', label: 'Active Clients' },
+    { value: 60, decimals: 0, prefix: '', suffix: 'days', label: 'To dispute a US credit card billing error' },
+    { value: 0, decimals: 0, prefix: '$', suffix: '', label: 'What our guides and tools cost' },
+    { value: 2, decimals: 0, prefix: '', suffix: 'days', label: 'To report a lost debit card for the lowest US liability' },
   ],
 }
 
 export const impact = {
-  before: 'We’ve supported over',
-  highlight: '350+',
-  after: 'small businesses and families with their books, taxes and plans',
-  logos: [
-    { src: '/images/u.webp', alt: 'Partner logo' },
-    { src: '/images/vivio.webp', alt: 'Partner logo' },
-    { src: '/images/rech.webp', alt: 'Partner logo' },
-    { src: '/images/hightech.webp', alt: 'Partner logo' },
-    { src: '/images/minty.webp', alt: 'Partner logo' },
+  before: 'Most refunds are won through',
+  highlight: 'your own bank',
+  after: 'and the official complaint routes, not paid middlemen',
+  methods: [
+    { icon: 'card', label: 'Credit card' },
+    { icon: 'wallet', label: 'Debit card' },
+    { icon: 'landmark', label: 'Bank transfer' },
+    { icon: 'phone', label: 'PayPal & wallets' },
+    { icon: 'repeat', label: 'Subscriptions' },
   ],
 }
 
 export const services = {
-  titleTop: 'We Handle the Numbers,',
-  titleBottom: 'You Run the Business',
-  text: 'Receipts in a shoebox? Deadlines creeping up? Send us what you have and we take it from there. We organise your records, prepare your filings, keep you on the right side of deadlines and explain everything in plain language, so you always know where you stand.',
+  titleTop: 'We Explain the Process,',
+  titleBottom: 'You Stay in Control',
+  text: 'Refund rules are scattered across bank terms, card-network rules and consumer law. We put them in plain language, show you which route fits your situation and help you write to the right people. You deal with your bank directly and you never pay anyone a recovery fee.',
   items: [
     {
-      icon: 'wallet',
-      title: 'Bookkeeping',
-      text: 'Monthly reconciliation, categorised transactions and clean ledgers, so your books are always current and ready when you need them.',
+      icon: 'card',
+      title: 'Card Chargebacks',
+      text: 'How to ask your card provider to reverse a payment when goods never arrived, were not as described or a refund was refused.',
+      href: '/services#card',
+    },
+    {
+      icon: 'shield',
+      title: 'Unauthorised Payments',
+      text: 'What to do in the first hours after spotting a payment you didn’t make, and why reporting quickly limits your losses.',
+      href: '/services#unauthorised',
     },
     {
       icon: 'landmark',
-      title: 'Payroll',
-      text: 'Accurate, on-time payroll runs with payslips, deductions and year-end summaries handled for you and your team.',
+      title: 'Bank Transfer Scams',
+      text: 'Paid someone by bank transfer who turned out to be a scammer? How recall requests and reimbursement schemes work.',
+      href: '/services#transfer',
     },
     {
-      icon: 'arrows',
-      title: 'Tax Preparation',
-      text: 'Personal and business returns prepared carefully and filed on time, with every deduction you are entitled to.',
+      icon: 'repeat',
+      title: 'Subscriptions & Billing',
+      text: 'Cancelling unwanted subscriptions, fixing double charges and disputing billing errors with the merchant and your bank.',
+      href: '/services#billing',
     },
     {
       icon: 'scale',
-      title: 'Compliance Support',
-      text: 'Help understanding and meeting your filing, reporting and registration obligations as your business grows.',
-    },
-    {
-      icon: 'file',
-      title: 'Financial Planning',
-      text: 'Budgets, cash-flow forecasts and management reports that help you plan, control and monitor your resources.',
+      title: 'Escalating a Complaint',
+      text: 'If your bank says no, how to complain formally and take your case to the free ombudsman or regulator in your country.',
+      href: '/services#escalate',
     },
   ],
   cta: {
-    title: 'Find out more about our services',
-    text: 'Not sure what you need? Book a free first consultation and we will point you in the right direction.',
-    button: 'Request Service',
+    title: 'Not sure where to start?',
+    text: 'Build a dispute letter in a few minutes. It runs entirely in your browser and nothing you type is sent to us.',
+    button: 'Write a Letter',
+    href: '/dispute-letter',
   },
 }
 
 export const about = {
-  titleTop: 'Clarity You',
-  titleBottom: 'Can Count On',
+  titleTop: 'Trust in a',
+  titleBottom: 'Sea of Doubt',
   text: [
-    'Choosing an accountant is about trust. We keep things simple with ',
+    'After losing money, it is easy to be targeted again by “recovery” firms that promise results for a fee. We work with ',
     { bold: 'full transparency' },
-    ': fixed, upfront pricing, plain-language reports and a named accountant who knows your file.',
+    ': no fees, no accounts, no deposits, and every route we describe goes directly through your bank or an official body.',
   ],
-  listTitle: 'Who we work with',
+  listTitle: 'What we can help you understand',
   list: [
-    'Small Businesses',
-    'Startups',
-    'Freelancers & Contractors',
-    'Non-profits',
-    'Property Owners',
-    'Individuals & Families',
+    'Card Chargebacks',
+    'Billing Errors',
+    'Unauthorised Payments',
+    'Bank Transfer Scams',
+    'Subscription Traps',
+    'Formal Complaints',
   ],
-  button: 'Book a Consultation',
-  callLabel: 'Or Call Us',
+  button: 'Read the Guides',
+  buttonHref: '/services',
+  sideLabel: 'Lost money to a scam?',
+  sideValue: 'See where to report it',
+  sideHref: '/services#report',
 }
 
 export const quote = {
-  text: 'We started this firm on one principle: every client deserves accurate numbers, honest advice and an accountant who picks up the phone.',
-  name: 'Your Name',
-  role: 'Founder',
+  text: 'If someone asks for a fee to recover your money, stop. Your bank, card provider and the official agencies handle refunds and complaints for free.',
+  name: 'The RefundRight Team',
+  role: 'Our first rule',
 }
 
-// Set to false once these are replaced with real client quotes.
-export const testimonialsAreSamples = true
-
-export const testimonials = [
-  {
-    rating: 4.9,
-    text: 'Our books were a year behind when we reached out. Within a few weeks everything was reconciled and we finally understood our cash flow.',
-    name: 'Andy James',
-    handle: '@andyjames',
-    avatar: '/images/handsome-caucasian-man-smiling-with-arms-crossed-1.webp',
-  },
-  {
-    rating: 5,
-    text: 'As a freelancer I dreaded tax season. They walked me through what I needed, filed on time and explained every line of my return.',
-    name: 'Ned Barnett',
-    handle: '@nedbarnet',
-    avatar: '/images/young-woman-smiling-cheerful-concept.webp',
-  },
-  {
-    rating: 4.8,
-    text: 'Payroll used to take me a full day every month. Now it just happens, and my team gets their payslips without me chasing anything.',
-    name: 'Henry Ballard',
-    handle: '@henryblrd',
-    avatar: '/images/young-man-with-redhead-beard-and-cap.webp',
-  },
-  {
-    rating: 4.9,
-    text: 'Responsive, organised and easy to talk to. The monthly reports are short and clear, which is exactly what I wanted.',
-    name: 'Shana Matthews',
-    handle: '@shana.mtw',
-    avatar: '/images/portrait-of-a-woman.webp',
-  },
-  {
-    rating: 4.8,
-    text: 'They built a cash-flow forecast that helped us decide when to hire. Having real numbers behind the decision made all the difference.',
-    name: 'Malcolm Miller',
-    handle: '@mc.miller',
-    avatar: '/images/young-african-american-man-smiling.webp',
-  },
-  {
-    rating: 5,
-    text: 'Switching accountants felt like a hassle, but the onboarding was smooth and they handled the handover with our previous firm.',
-    name: 'Lincoln Smith',
-    handle: '@smlincoln',
-    avatar: '/images/handsome-man-smiling-in-the-park.webp',
-  },
-  {
-    rating: 5,
-    text: 'Clear fixed pricing and no surprise invoices. I always know what I am paying for and what I am getting.',
-    name: 'Warwick Blake',
-    handle: '@wrblake',
-    avatar: '/images/handsome-cool-african-man-smiling-against-red-back.webp',
-  },
-  {
-    rating: 4.9,
-    text: 'Fast, professional and transparent. They kept me informed throughout our year-end and delivered exactly what they promised.',
-    name: 'Tara Dean',
-    handle: '@tara.dean',
-    avatar: '/images/beautiful-blond-woman-smiling.webp',
-  },
-  {
-    rating: 5,
-    text: 'Our non-profit needed help with reporting for a new grant. They got our records in order and the report went in well before the deadline.',
-    name: 'Grace Osborne',
-    handle: '@grace.or',
-    avatar: '/images/portrait-of-an-african-woman-smiling.webp',
-  },
-]
+export const situations = {
+  badge: 'Common situations',
+  title: 'Which one sounds like you?',
+  items: [
+    {
+      tag: 'Card',
+      title: 'My order never arrived',
+      text: 'Contact the seller first and keep a record. If they don’t resolve it, ask your card provider for a chargeback, usually within about 120 days.',
+      href: '/services#card',
+    },
+    {
+      tag: 'Billing',
+      title: 'I was charged twice',
+      text: 'Ask the merchant to refund the duplicate. On a US credit card you can formally dispute a billing error in writing within 60 days of the statement.',
+      href: '/services#billing',
+    },
+    {
+      tag: 'Urgent',
+      title: 'There’s a payment I didn’t make',
+      text: 'Call your bank now using the number on your card, freeze the card and report it. The sooner you report, the less you can be liable for.',
+      href: '/services#unauthorised',
+    },
+    {
+      tag: 'Transfer',
+      title: 'I sent money to a scammer',
+      text: 'Tell your bank immediately and ask them to try to recall the payment. In the UK, many such scams are covered by a reimbursement scheme.',
+      href: '/services#transfer',
+    },
+    {
+      tag: 'Subscription',
+      title: 'I can’t cancel a subscription',
+      text: 'Cancel in writing, keep proof, and ask your card provider to block future payments. Charges after cancellation can be disputed.',
+      href: '/services#billing',
+    },
+    {
+      tag: 'Faulty',
+      title: 'The item was not as described',
+      text: 'Return it if you can and keep evidence. If the seller refuses a refund, a card dispute or a UK Section 75 claim may apply.',
+      href: '/services#card',
+    },
+    {
+      tag: 'Escalate',
+      title: 'My bank rejected my claim',
+      text: 'Ask for the decision in writing, make a formal complaint, then take it to your country’s free financial ombudsman or regulator.',
+      href: '/services#escalate',
+    },
+    {
+      tag: 'Warning',
+      title: 'A company offered to recover my money',
+      text: 'Be very careful. Recovery scams target people who have already lost money. Official bodies never charge you to get money back.',
+      href: '/services#redflags',
+    },
+    {
+      tag: 'Crypto',
+      title: 'I paid in cryptocurrency',
+      text: 'Crypto payments usually can’t be reversed. Report to the exchange and the authorities, and ignore anyone promising to “trace and recover” it for a fee.',
+      href: '/services#report',
+    },
+  ],
+}
 
 export const process = {
-  title: "It's easy to work with Us",
-  text: 'Northgate Advisory is a full-service accounting and advisory practice. From monthly bookkeeping to year-end accounts and tax returns, we handle the detail securely and transparently, so you can focus on your work.',
-  steps: ['Book a Call', 'Share Your Documents', 'Get Your Plan'],
+  title: 'It’s easy to get started',
+  text: 'Most disputes follow the same pattern. Gather your evidence, contact the merchant, then go to your bank or card provider. If that fails, escalate to the free official complaint service in your country.',
+  steps: ['Read the Guide', 'Write Your Letter', 'Contact Your Bank'],
 }
 
-// Placeholder prices. Set your own.
 export const plans = [
   {
-    name: 'Standard',
-    price: '$42.00',
-    unit: 'per hour',
+    name: 'RefundRight',
+    price: '$0.00',
+    unit: 'always free',
+    good: true,
     features: [
-      'Monthly bookkeeping',
-      'Free first consultation',
-      'Basic reporting and analytics',
-      'Secure document portal',
-      'Year-end summary',
+      'Plain-language guides',
+      'Dispute letter builder',
+      'Deadline checker',
+      'Where-to-report directory',
+      'No account or sign-up needed',
     ],
-    popular: false,
+    button: 'Read the Guides',
+    href: '/services',
   },
   {
-    name: 'Premium+',
-    price: '$64.00',
-    unit: 'per hour',
-    features: [
-      'Premium+ reporting and analytics',
-      'Free first consultation',
-      'Priority chat and email support',
-      'Tax planning sessions',
-      'Dedicated accountant',
-    ],
+    name: 'Recovery Scam Red Flags',
+    price: 'Stop',
+    unit: 'if someone does any of these',
+    good: false,
     popular: true,
+    badge: 'WARNING',
+    features: [
+      'Asks for an up-front “recovery” fee',
+      'Guarantees to get your money back',
+      'Asks for card numbers, PINs or passwords',
+      'Wants you to open an account or deposit funds',
+      'Claims to work with police or regulators',
+    ],
+    button: 'Learn the warning signs',
+    href: '/services#redflags',
   },
 ]
 
-export const planNote = 'Tax & other services quoted separately.'
+export const planNote = 'We never ask for card numbers, PINs or passwords.'
 
 export const faqs = [
   {
-    q: 'What services does Northgate Advisory offer?',
-    a: 'We provide bookkeeping, payroll, personal and business tax preparation, compliance support and financial planning, including budgets, forecasts and management reports.',
+    q: 'What is a chargeback?',
+    a: 'A chargeback is when your card provider reverses a card payment after you dispute it, for example because goods never arrived or were not as described. You request it through your own bank or card provider. Time limits are set by the card networks and are often around 120 days, so ask your provider.',
   },
   {
-    q: 'How does getting started work?',
-    a: 'Book a free consultation, tell us about your situation and share your existing records. We then send a fixed quote and a simple onboarding checklist, and assign you a dedicated accountant.',
+    q: 'Do I need to pay anyone to get a refund?',
+    a: 'No. Disputing a payment with your bank or card provider is free, and so are official complaint services such as financial ombudsmen and consumer agencies. Be very wary of any company that asks for an up-front fee to recover money.',
   },
   {
-    q: 'Can you help if my books are behind?',
-    a: 'Yes. Catch-up bookkeeping is one of the most common things we do. We will bring your records up to date first, then keep them current month by month.',
+    q: 'What should I do first if I see a payment I didn’t make?',
+    a: 'Call your bank or card provider straight away using the number on the back of your card or in your banking app, freeze or cancel the card, and change any passwords that may be compromised. How quickly you report can affect how much you are liable for.',
   },
   {
-    q: 'Do you work with clients remotely?',
-    a: 'Yes. Most of our clients work with us entirely online through our secure document portal, email and video calls. In-person meetings are available on request.',
+    q: 'Can I get money back from a bank transfer?',
+    a: 'Sometimes. Contact your bank immediately and ask them to try to recall the payment. In the UK, many authorised push payment (APP) scams sent by Faster Payments or CHAPS are now covered by a mandatory reimbursement scheme. Rules differ by country.',
   },
   {
-    q: 'How is pricing calculated?',
-    a: 'Ongoing work is priced at the hourly rates shown above, and we agree an estimate with you before starting. Larger one-off projects receive a fixed quote.',
+    q: 'What if my bank rejects my claim?',
+    a: 'Ask for the decision and the reasons in writing, then make a formal complaint. If you are still unhappy, you can usually take it to a free independent service, such as the Financial Ombudsman Service in the UK, AFCA in Australia or OBSI in Canada, or file a complaint with the CFPB in the US.',
   },
   {
-    q: 'What information do I need to provide?',
-    a: 'Usually bank statements, receipts and invoices, payroll records and last year’s returns. We will send a tailored checklist after your first call.',
+    q: 'Does RefundRight see my information?',
+    a: 'No. Our tools run entirely in your browser, and nothing you type into them is sent to us or stored. We will never ask for your card number, PIN, passwords or bank login.',
   },
 ]
 
@@ -272,15 +275,15 @@ export const cta = {
   badge: 'We’re here to help',
   titleWhite: 'Need Assistance ?',
   titleGradient: "Let's Talk",
-  text: 'Tell us where your books are today and we will show you a clear path forward.',
+  text: 'Questions about our guides or tools? Send us a message. Please never include card numbers or passwords.',
 }
 
 export const footerLinks = {
   useful: [
     { label: 'Home', href: '/' },
     { label: 'About', href: '/about' },
-    { label: 'Account', href: '/login' },
     { label: 'Services', href: '/services' },
+    { label: 'Free Tools', href: '/dispute-letter' },
   ],
   getStarted: [
     { label: 'Privacy Policy', href: '/terms-and-conditions#privacy' },

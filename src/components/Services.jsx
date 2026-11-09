@@ -1,4 +1,5 @@
-import { services, site } from '../config'
+import { ArrowUpRight } from 'lucide-react'
+import { services } from '../config'
 import Icon from './Icon'
 import { Reveal } from './ui'
 
@@ -8,20 +9,23 @@ const offsets = ['lg:mt-0', 'lg:mt-10', 'lg:mt-[60px]', 'lg:mt-0', 'lg:mt-[10px]
 function ServiceCard({ item, className, delay }) {
   return (
     <Reveal delay={delay} className={className}>
-      <article className="group h-full rounded-xl border border-line bg-white p-9 transition-all duration-500 hover:-translate-y-2 hover:border-transparent hover:shadow-[0_24px_60px_rgba(1,6,48,0.10)]">
+      <a href={item.href} className="group block h-full rounded-xl border border-line bg-white p-9 transition-all duration-500 hover:-translate-y-2 hover:border-transparent hover:shadow-[0_24px_60px_rgba(1,6,48,0.10)]">
         <span className="grid h-[60px] w-[60px] place-items-center rounded-full bg-ink text-white transition-colors duration-500 group-hover:bg-accent">
           <Icon name={item.icon} className="h-7 w-7" strokeWidth={1.6} />
         </span>
         <h3 className="mt-[42px] text-[22px] leading-[1.1] font-semibold tracking-[-0.035em] text-primary">{item.title}</h3>
         <p className="mt-3 text-base leading-[1.6] text-body">{item.text}</p>
-      </article>
+        <span className="mt-6 inline-flex items-center gap-1.5 text-[15px] font-semibold text-primary transition-colors group-hover:text-accent">
+          Read the guide <ArrowUpRight className="h-4 w-4" />
+        </span>
+      </a>
     </Reveal>
   )
 }
 
 export default function Services({ className = "" }) {
   return (
-    <section id="services" className={`pt-10 pb-24 lg:pt-[60px] lg:pb-[140px] ${className}`}>
+    <section id="guides" className={`pt-10 pb-24 lg:pt-[60px] lg:pb-[140px] ${className}`}>
       <div className="container-site">
         <div className="grid gap-8 lg:grid-cols-2 lg:gap-24">
           <Reveal>
@@ -48,7 +52,7 @@ export default function Services({ className = "" }) {
               </h3>
               <p className="mt-4 text-base leading-[1.65] font-medium text-white/80">{services.cta.text}</p>
               <a
-                href={site.bookingUrl}
+                href={services.cta.href}
                 className="mt-12 inline-flex items-center rounded-md bg-white px-6 py-[17px] text-base leading-none font-semibold tracking-[-0.025em] text-primary transition-colors hover:bg-accent hover:text-white"
               >
                 {services.cta.button}

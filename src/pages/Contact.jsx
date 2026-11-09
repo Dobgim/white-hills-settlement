@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Clock, Mail, MapPin, MessageCircle, Send } from 'lucide-react'
+import { BookOpen, Clock, Mail, Send, ShieldAlert } from 'lucide-react'
 import PageHero from '../components/PageHero'
 import { Reveal, Slant } from '../components/ui'
 import { usePageTitle } from '../components/Layout'
@@ -56,7 +56,11 @@ export default function Contact() {
               className="rounded-2xl border border-line/70 bg-white p-7 shadow-[0_30px_70px_rgba(1,6,48,0.10)] sm:p-9"
             >
               <h2 className="text-[22px] font-semibold tracking-[-0.03em] text-primary">{c.formTitle}</h2>
-              <div className="mt-7 grid gap-5 sm:grid-cols-2">
+              <p className="mt-3 flex gap-2 rounded-lg bg-red-50 px-3.5 py-2.5 text-[13px] leading-snug text-red-700">
+                <ShieldAlert className="mt-0.5 h-4 w-4 shrink-0" />
+                {c.safety}
+              </p>
+              <div className="mt-6 grid gap-5 sm:grid-cols-2">
                 <label className="block">
                   <span className="mb-2 block text-sm font-semibold text-primary">Name</span>
                   <input required className={field} placeholder="Your Name" value={form.name} onChange={set('name')} autoComplete="name" />
@@ -115,23 +119,23 @@ export default function Contact() {
             </Reveal>
             <div className="mt-10 grid gap-5 sm:grid-cols-2">
               <Reveal delay={80}>
-                <InfoCard icon={MapPin} title="Office">
-                  {site.address}
+                <InfoCard icon={Mail} title="Email" href={`mailto:${site.email}`}>
+                  {site.email}
                 </InfoCard>
               </Reveal>
               <Reveal delay={160}>
-                <InfoCard icon={MessageCircle} title="Call Us" href={site.phoneHref}>
-                  {site.phone}
-                </InfoCard>
-              </Reveal>
-              <Reveal delay={240}>
-                <InfoCard icon={Clock} title="Work Hours">
+                <InfoCard icon={Clock} title="Replies">
                   {site.hours}
                 </InfoCard>
               </Reveal>
+              <Reveal delay={240}>
+                <InfoCard icon={BookOpen} title="Free Guides" href="/services">
+                  Step-by-step help for every payment type
+                </InfoCard>
+              </Reveal>
               <Reveal delay={320}>
-                <InfoCard icon={Mail} title="Email" href={`mailto:${site.email}`}>
-                  {site.email}
+                <InfoCard icon={ShieldAlert} title="Report a Scam" href="/services#report">
+                  Official places to report, by country
                 </InfoCard>
               </Reveal>
             </div>

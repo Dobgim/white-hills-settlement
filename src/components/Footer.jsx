@@ -1,4 +1,4 @@
-import { Mail, Phone } from 'lucide-react'
+import { Mail, MessageCircle } from 'lucide-react'
 import { cta, footerLinks, site } from '../config'
 import { Logo, Reveal } from './ui'
 
@@ -44,8 +44,8 @@ export default function Footer() {
             <p className="mx-auto mt-5 max-w-[540px] text-[17px] leading-[1.55] font-medium text-white/65">{cta.text}</p>
           </Reveal>
           <Reveal delay={200} className="mt-9 flex flex-wrap items-center justify-center gap-4">
-            <a href={site.phoneHref} className="btn-accent gap-2.5">
-              <Phone className="h-4 w-4" /> {site.phone}
+            <a href="/contact" className="btn-accent gap-2.5">
+              <MessageCircle className="h-4 w-4" /> Contact Us
             </a>
             <a
               href={`mailto:${site.email}`}
@@ -60,7 +60,7 @@ export default function Footer() {
           <div>
             <Logo />
             <p className="mt-6 max-w-[230px] text-[17px] leading-[1.6] font-medium text-white">{site.tagline}</p>
-            <p className="mt-4 max-w-[260px] text-sm leading-relaxed text-white/50">{site.address}</p>
+            <p className="mt-4 max-w-[260px] text-sm leading-relaxed text-white/50">{site.disclaimer}</p>
           </div>
           <LinkCol title="Useful Links" links={footerLinks.useful} />
           <LinkCol title="Get Started" links={footerLinks.getStarted} />

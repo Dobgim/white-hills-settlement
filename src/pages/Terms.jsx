@@ -7,7 +7,7 @@ export default function Terms() {
   usePageTitle('Terms & Conditions')
   return (
     <>
-      <PageHero title={['Terms &', 'Conditions']} text={`${termsIntro[0]}. ${termsIntro[1]}.`} />
+      <PageHero title={['Terms &', 'Conditions']} text={termsIntro} />
 
       <section className="bg-gradient-to-b from-soft to-white pt-12 pb-24 lg:pt-[70px] lg:pb-[130px]">
         <div className="container-site">

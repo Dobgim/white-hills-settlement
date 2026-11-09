@@ -1,4 +1,4 @@
-import { Check, Compass } from 'lucide-react'
+import { Check, Compass, X } from 'lucide-react'
 import PageHero from '../components/PageHero'
 import Icon from '../components/Icon'
 import { CountUp, Reveal } from '../components/ui'
@@ -6,48 +6,32 @@ import { usePageTitle } from '../components/Layout'
 import { aboutPage as a } from '../content'
 import { site } from '../config'
 
-function Bar({ label, value, delay }) {
-  return (
-    <Reveal delay={delay}>
-      <div className="flex items-center justify-between text-[15px] font-semibold tracking-[-0.02em] text-primary">
-        <span>{label}</span>
-        <span>{value}%</span>
-      </div>
-      <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-chip">
-        <div
-          className="h-full origin-left scale-x-0 rounded-full bg-ink transition-transform delay-300 duration-[1600ms] ease-out [.is-visible_&]:scale-x-100"
-          style={{ width: `${value}%` }}
-        />
-      </div>
-    </Reveal>
-  )
-}
-
 export default function About() {
   usePageTitle('About')
   return (
     <>
       <PageHero title={a.heroTitle} text={a.heroText} />
 
-      {/* Intro: photo + vision/mission + stats */}
+      {/* Intro: photo + vision/mission + facts */}
       <section className="bg-gradient-to-b from-soft to-white pt-14 pb-20 lg:pt-[80px] lg:pb-[130px]">
         <div className="container-site grid items-center gap-14 lg:grid-cols-2 lg:gap-[100px]">
           <div>
             <Reveal className="relative">
               <img
                 src="/images/team.jpg"
-                alt="Our team celebrating in the office"
+                alt="A group of people celebrating in an office"
                 className="aspect-[608/418] w-full rounded-2xl object-cover"
                 loading="lazy"
               />
               <span className="animate-float absolute top-1/2 left-1/2 hidden h-14 w-14 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/90 shadow-[0_0_0_10px_rgba(60,82,255,0.2)] sm:block" />
             </Reveal>
             <div className="mt-14 grid grid-cols-3 gap-4">
-              {a.stats.map((s, i) => (
+              {a.facts.map((s, i) => (
                 <Reveal key={s.label} delay={i * 100}>
                   <div className="text-grad-dark flex items-baseline text-[30px] leading-none font-medium tracking-[-0.05em] sm:text-[44px]">
-                    <CountUp value={s.value} decimals={s.decimals} />
-                    <span className="ml-1 text-[18px] sm:text-[26px]">{s.suffix}</span>
+                    {s.prefix}
+                    <CountUp value={s.value} />
+                    <span className="ml-0.5 text-[18px] sm:text-[26px]">{s.suffix}</span>
                   </div>
                   <p className="mt-3 text-[13px] font-medium text-body sm:text-[15px]">{s.label}</p>
                 </Reveal>
@@ -90,8 +74,8 @@ export default function About() {
             </div>
             <Reveal delay={300}>
               <div className="mt-10 border-t border-line pt-7">
-                <p className="font-['Mrs_Saint_Delafield',cursive] text-[40px] leading-none text-primary/70">{a.founderName}</p>
-                <p className="mt-1 text-sm font-medium text-body">{a.founderRole}</p>
+                <p className="font-['Mrs_Saint_Delafield',cursive] text-[40px] leading-none text-primary/70">{site.name}</p>
+                <p className="mt-1 text-sm font-medium text-body">Free &amp; independent</p>
               </div>
             </Reveal>
           </div>
@@ -121,7 +105,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* Values + methodology */}
+      {/* Values + methodology + what we never do */}
       <section className="pb-20 lg:pb-[120px]">
         <div className="container-site grid gap-14 lg:grid-cols-2 lg:gap-[90px]">
           <div>
@@ -162,16 +146,18 @@ export default function About() {
 
             <div className="mt-14 border-t border-line pt-10">
               <Reveal>
-                <h3 className="text-[18px] font-semibold tracking-[-0.02em] text-body">{a.barsTitle}</h3>
+                <h3 className="text-[18px] font-semibold tracking-[-0.02em] text-body">{a.neverTitle}</h3>
               </Reveal>
-              <div className="mt-7 space-y-7">
-                {a.bars.map((b, i) => (
-                  <Bar key={b.label} {...b} delay={i * 100} />
+              <ul className="mt-6 space-y-4">
+                {a.never.map((n, i) => (
+                  <Reveal as="li" key={n} delay={i * 80} className="flex items-center gap-3 text-[16px] font-medium text-primary">
+                    <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-red-50 text-red-500">
+                      <X className="h-3.5 w-3.5" strokeWidth={3} />
+                    </span>
+                    {n}
+                  </Reveal>
                 ))}
-              </div>
-              {a.barsAreSamples && (
-                <p className="mt-6 text-sm text-slate">Sample figures shown for layout. Replace with your own.</p>
-              )}
+              </ul>
             </div>
           </div>
         </div>

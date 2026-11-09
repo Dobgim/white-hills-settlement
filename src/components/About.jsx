@@ -1,5 +1,5 @@
 import { Check, PieChart } from 'lucide-react'
-import { about, quote, site } from '../config'
+import { about, quote } from '../config'
 import { Reveal } from './ui'
 
 export default function About() {
@@ -12,7 +12,7 @@ export default function About() {
             <div className="rounded-[20px] bg-softer p-3 shadow-[0_0_0_1px_rgba(1,6,48,0.03)]">
               <img
                 src="/images/happy-adult-businesswoman-holding-folder-and-pencil-near-table-in-office.webp"
-                alt="Accountant holding a client folder"
+                alt="Woman holding a folder of documents"
                 className="aspect-[544/714] w-full rounded-xl object-cover"
                 loading="lazy"
               />
@@ -56,18 +56,18 @@ export default function About() {
             <Reveal delay={200}>
               <div className="mt-11 flex flex-wrap items-center gap-5 border-t border-line pt-10 sm:gap-0">
                 <a
-                  href={site.bookingUrl}
+                  href={about.buttonHref}
                   className="inline-flex items-center rounded-md bg-black px-8 py-[18px] text-base leading-none font-semibold tracking-[-0.025em] text-white transition-colors hover:bg-accent"
                 >
                   {about.button}
                 </a>
                 <span className="mx-5 hidden h-[52px] w-px bg-line sm:block" />
-                <a href={site.phoneHref} className="group flex items-center gap-4">
+                <a href={about.sideHref} className="group flex items-center gap-4">
                   <img src="/images/operator.webp" alt="" className="h-[52px] w-[52px] rounded-full object-cover" loading="lazy" />
                   <span>
-                    <span className="block text-[15px] text-body">{about.callLabel}</span>
+                    <span className="block text-[15px] text-body">{about.sideLabel}</span>
                     <span className="block text-[18px] font-medium tracking-[-0.02em] text-primary group-hover:text-accent">
-                      {site.phone}
+                      {about.sideValue}
                     </span>
                   </span>
                 </a>
@@ -88,7 +88,7 @@ export default function About() {
             <div className="mx-auto mt-12 h-px w-full max-w-[520px] bg-gradient-to-r from-transparent via-white/30 to-transparent" />
             <p className="mt-8 text-[20px] font-semibold tracking-[-0.025em] text-white">{quote.name}</p>
             <p className="mt-1 text-[15px] text-white/60">
-              {quote.role}, {site.name}
+              {quote.role}
             </p>
           </Reveal>
         </div>

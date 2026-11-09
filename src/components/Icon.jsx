@@ -1,8 +1,12 @@
 import {
+  AlertTriangle,
   ArrowLeftRight,
+  Clock,
+  CreditCard,
   FileText,
   Globe,
   Landmark,
+  Repeat,
   Scale,
   ShieldCheck,
   Smartphone,
@@ -12,6 +16,7 @@ import {
 } from 'lucide-react'
 
 const map = {
+  card: CreditCard,
   wallet: WalletCards,
   landmark: Landmark,
   arrows: ArrowLeftRight,
@@ -22,6 +27,9 @@ const map = {
   shield: ShieldCheck,
   globe: Globe,
   phone: Smartphone,
+  repeat: Repeat,
+  alert: AlertTriangle,
+  clock: Clock,
 }
 
 export default function Icon({ name, ...props }) {

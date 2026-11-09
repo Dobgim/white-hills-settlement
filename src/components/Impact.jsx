@@ -1,12 +1,13 @@
 import { impact } from '../config'
+import Icon from './Icon'
 import { Reveal } from './ui'
 
 export default function Impact() {
   return (
-    <section id="about" className="bg-gradient-to-b from-soft to-white pt-16 pb-20 lg:pt-[100px] lg:pb-[130px]">
+    <section className="bg-gradient-to-b from-soft to-white pt-16 pb-20 lg:pt-[100px] lg:pb-[130px]">
       <div className="container-site">
         <Reveal>
-          <h2 className="mx-auto max-w-[740px] text-center text-[24px] leading-[1.4] font-semibold tracking-[-0.03em] text-primary sm:text-[28px] lg:text-[32px]">
+          <h2 className="mx-auto max-w-[760px] text-center text-[24px] leading-[1.4] font-semibold tracking-[-0.03em] text-primary sm:text-[28px] lg:text-[32px]">
             {impact.before}{' '}
             <span className="relative inline-block">
               <span className="text-grad-muted">{impact.highlight}</span>
@@ -23,22 +24,26 @@ export default function Impact() {
           </h2>
         </Reveal>
 
-        <div className="mx-auto mt-14 grid max-w-[720px] grid-cols-2 sm:grid-cols-3 lg:max-w-none lg:grid-cols-5">
-          {impact.logos.map((l, i) => (
+        {/* Payment methods we cover (same bordered strip as the original logo row) */}
+        <ul className="mx-auto mt-14 grid max-w-[720px] grid-cols-2 sm:grid-cols-3 lg:max-w-none lg:grid-cols-5">
+          {impact.methods.map((m, i) => (
             <Reveal
-              key={l.src + i}
+              as="li"
+              key={m.label}
               delay={i * 90}
-              className="flex h-[118px] items-center justify-center border-l border-line px-6 first:border-l-0 lg:first:border-l"
+              className="group flex h-[118px] flex-col items-center justify-center gap-3 border-l border-line px-6 first:border-l-0 lg:first:border-l"
             >
-              <img
-                src={l.src}
-                alt={l.alt}
-                className="max-h-11 w-auto opacity-60 grayscale transition duration-300 hover:opacity-100 hover:grayscale-0"
-                loading="lazy"
+              <Icon
+                name={m.icon}
+                className="h-8 w-8 text-[#8d8fa0] transition-colors duration-300 group-hover:text-accent"
+                strokeWidth={1.6}
               />
+              <span className="text-[17px] font-semibold tracking-[-0.03em] text-[#8d8fa0] transition-colors duration-300 group-hover:text-primary">
+                {m.label}
+              </span>
             </Reveal>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   )

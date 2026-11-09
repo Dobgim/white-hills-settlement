@@ -41,7 +41,7 @@ export function RouterEffects() {
 /** Sets the browser tab title for a page. */
 export function usePageTitle(title) {
   useEffect(() => {
-    document.title = title ? `${title} | Northgate Advisory` : 'Northgate Advisory | Accounting, Tax & Advisory'
+    document.title = title ? `${title} | RefundRight` : 'RefundRight | Free Refund & Dispute Guides'
   }, [title])
 }
 

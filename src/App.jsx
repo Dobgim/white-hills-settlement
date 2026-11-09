@@ -5,8 +5,8 @@ import About from './pages/About'
 import ServicesPage from './pages/ServicesPage'
 import Contact from './pages/Contact'
 import Terms from './pages/Terms'
-import Login from './pages/Login'
-import Register from './pages/Register'
+import DisputeLetter from './pages/DisputeLetter'
+import DeadlineChecker from './pages/DeadlineChecker'
 import NotFound from './pages/NotFound'
 
 export default function App() {
@@ -22,9 +22,9 @@ export default function App() {
           <Route path="contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Route>
-        {/* Client portal pages have their own full-screen layout, like the original app pages */}
-        <Route path="login" element={<Login />} />
-        <Route path="register" element={<Register />} />
+        {/* Free tools use the full-screen split layout, like the original app pages */}
+        <Route path="dispute-letter" element={<DisputeLetter />} />
+        <Route path="deadline-checker" element={<DeadlineChecker />} />
       </Routes>
     </BrowserRouter>
   )

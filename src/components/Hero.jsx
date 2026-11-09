@@ -42,7 +42,7 @@ export default function Hero() {
 
             <Reveal delay={300}>
               <a
-                href="/register"
+                href={hero.ctaHref}
                 className="mt-11 inline-flex items-center rounded-md bg-white/40 px-8 py-[18px] text-base leading-none font-semibold tracking-[-0.025em] text-white backdrop-blur-sm transition-colors duration-300 hover:bg-accent"
               >
                 {hero.cta}
