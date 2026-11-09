@@ -18,25 +18,28 @@ export const site = {
   phoneHref: 'tel:+15550102040',
   email: 'hello@northgate-advisory.example',
   address: '120 Placeholder Street, Suite 400, Your City',
-  bookingUrl: '#contact',
+  hours: 'Mon – Fri, 8 am – 6 pm',
+  bookingUrl: '/contact',
+  // Set this to your real client-portal sign-in URL when you have one.
+  // While it is empty, the Login / Register forms show a "not connected yet" notice.
+  portalUrl: '',
   year: new Date().getFullYear(),
 }
 
 export const nav = [
-  { label: 'Home', href: '#top' },
-  { label: 'About', href: '#about' },
+  { label: 'Home', href: '/' },
+  { label: 'About', href: '/about' },
+  { label: 'Services', href: '/services' },
   {
-    label: 'Services',
-    href: '#services',
+    label: 'Client Portal',
+    href: '/login',
     children: [
-      { label: 'Bookkeeping', href: '#services' },
-      { label: 'Tax Preparation', href: '#services' },
-      { label: 'Business Advisory', href: '#services' },
+      { label: 'Login', href: '/login' },
+      { label: 'Register', href: '/register' },
     ],
   },
-  { label: 'Pricing', href: '#pricing' },
-  { label: 'FAQ', href: '#faq' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Terms & Conditions', href: '/terms-and-conditions' },
+  { label: 'Contact', href: '/contact' },
 ]
 
 export const hero = {
@@ -274,15 +277,15 @@ export const cta = {
 
 export const footerLinks = {
   useful: [
-    { label: 'Home', href: '#top' },
-    { label: 'About', href: '#about' },
-    { label: 'Services', href: '#services' },
-    { label: 'Pricing', href: '#pricing' },
+    { label: 'Home', href: '/' },
+    { label: 'About', href: '/about' },
+    { label: 'Account', href: '/login' },
+    { label: 'Services', href: '/services' },
   ],
   getStarted: [
-    { label: 'Privacy Policy', href: '#' },
-    { label: 'Terms & Conditions', href: '#' },
-    { label: 'FAQ', href: '#faq' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'Privacy Policy', href: '/terms-and-conditions#privacy' },
+    { label: 'Terms & Condition', href: '/terms-and-conditions' },
+    { label: 'FAQ', href: '/#faq' },
+    { label: 'Contact', href: '/contact' },
   ],
 }

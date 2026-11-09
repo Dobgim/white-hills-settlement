@@ -19,9 +19,9 @@ function ServiceCard({ item, className, delay }) {
   )
 }
 
-export default function Services() {
+export default function Services({ className = "" }) {
   return (
-    <section id="services" className="pt-10 pb-24 lg:pt-[60px] lg:pb-[140px]">
+    <section id="services" className={`pt-10 pb-24 lg:pt-[60px] lg:pb-[140px] ${className}`}>
       <div className="container-site">
         <div className="grid gap-8 lg:grid-cols-2 lg:gap-24">
           <Reveal>

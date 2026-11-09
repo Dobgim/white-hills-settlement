@@ -21,7 +21,7 @@ function LinkCol({ title, links }) {
 
 export default function Footer() {
   return (
-    <footer id="contact" className="relative overflow-hidden bg-[radial-gradient(at_bottom_center,#646464_0%,#232323_60%)]">
+    <footer className="relative overflow-hidden bg-[radial-gradient(at_bottom_center,#646464_0%,#232323_60%)]">
       {/* Drop-shaped notch at the top edge */}
       <svg viewBox="0 0 120 90" className="absolute top-0 left-1/2 h-[60px] w-[80px] -translate-x-1/2 md:h-[90px] md:w-[120px]" aria-hidden="true">
         <path d="M0 0 H120 C 78 0, 62 30, 60 90 C 58 30, 42 0, 0 0 Z" fill="#ffffff" />

@@ -39,7 +39,7 @@ function Plan({ plan, delay }) {
           ))}
         </ul>
 
-        <a href={site.bookingUrl} className="btn-accent mt-12 w-full">
+        <a href="/register" className="btn-accent mt-12 w-full">
           Select Plan
         </a>
         <p className={`mt-6 text-sm ${dark ? 'text-white/60' : 'text-body'}`}>

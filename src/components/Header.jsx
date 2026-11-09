@@ -1,18 +1,20 @@
 import { useEffect, useState } from 'react'
-import { ChevronDown, Menu, PhoneCall, X } from 'lucide-react'
+import { useLocation } from 'react-router-dom'
+import { ChevronDown, Menu, UserRound, X } from 'lucide-react'
 import { nav, site } from '../config'
 import { Logo } from './ui'
 
+function isActive(item, pathname) {
+  if (item.children) return item.children.some((c) => c.href === pathname)
+  return item.href === pathname
+}
+
 export default function Header() {
   const [open, setOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
+  const { pathname } = useLocation()
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 120)
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+  // Close the mobile drawer whenever the page changes
+  useEffect(() => setOpen(false), [pathname])
 
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : ''
@@ -25,20 +27,12 @@ export default function Header() {
         <div className="container-site">{site.announcement}</div>
       </div>
 
-      {/* Main header: transparent over the hero, sticky + solid after scrolling */}
-      <header
-        className={`z-40 w-full transition-all duration-500 ${
-          scrolled
-            ? 'fixed top-0 left-0 bg-primary/90 shadow-[0_10px_40px_rgba(1,6,48,0.35)] backdrop-blur-md'
-            : 'absolute top-[56px] left-0'
-        }`}
-      >
+      {/* Main header: transparent over the top section; scrolls away with the page */}
+      <header className="absolute top-[56px] left-0 z-40 w-full">
         <div className="container-site flex items-stretch">
           <a
-            href="#top"
-            className={`flex shrink-0 items-center border-b border-white/20 pr-10 transition-all lg:w-[200px] ${
-              scrolled ? 'py-3' : 'py-5'
-            }`}
+            href="/"
+            className="flex shrink-0 items-center border-b border-white/20 py-5 pr-10 lg:w-[200px]"
             aria-label={`${site.name} home`}
           >
             <Logo />
@@ -51,7 +45,9 @@ export default function Header() {
                   <li key={item.label} className="group relative">
                     <a
                       href={item.href}
-                      className="flex items-center gap-1.5 px-4 py-3 text-base font-semibold tracking-[-0.02em] text-white transition-colors hover:text-white/70"
+                      className={`flex items-center gap-1.5 px-3 py-3 text-[15px] leading-[1.05] font-semibold tracking-[-0.02em] transition-colors hover:text-white xl:px-4 xl:text-base ${
+                        isActive(item, pathname) ? 'text-white' : 'text-white/80'
+                      } ${item.label.length > 14 ? 'max-w-[110px]' : ''}`}
                     >
                       {item.label}
                       {item.children && (
@@ -78,12 +74,12 @@ export default function Header() {
             </nav>
 
             <a
-              href={site.bookingUrl}
-              className="group hidden items-center gap-6 rounded-lg bg-black py-1.5 pr-1.5 pl-5 text-base font-semibold tracking-[-0.02em] text-white transition-colors hover:bg-accent sm:flex"
+              href="/login"
+              className="group hidden shrink-0 items-center gap-5 rounded-lg bg-black py-1.5 pr-1.5 pl-5 text-base font-semibold tracking-[-0.02em] text-white transition-colors hover:bg-accent sm:flex"
             >
-              Book a Call
+              Client Login
               <span className="grid h-9 w-9 place-items-center rounded-full bg-white text-primary transition-transform group-hover:rotate-12">
-                <PhoneCall className="h-4 w-4" strokeWidth={1.75} />
+                <UserRound className="h-4 w-4" strokeWidth={1.75} />
               </span>
             </a>
 
@@ -143,8 +139,11 @@ export default function Header() {
             </li>
           ))}
         </ul>
-        <a href={site.bookingUrl} onClick={() => setOpen(false)} className="btn-accent mt-6 w-full">
-          Book a Call
+        <a href="/login" onClick={() => setOpen(false)} className="btn-accent mt-6 w-full">
+          Client Login
+        </a>
+        <a href={site.phoneHref} className="mt-4 block text-center text-sm text-white/60">
+          {site.phone}
         </a>
       </aside>
     </>

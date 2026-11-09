@@ -1,4 +1,15 @@
-import { ArrowLeftRight, FileText, Landmark, Scale, WalletCards } from 'lucide-react'
+import {
+  ArrowLeftRight,
+  FileText,
+  Globe,
+  Landmark,
+  Scale,
+  ShieldCheck,
+  Smartphone,
+  Target,
+  WalletCards,
+  Zap,
+} from 'lucide-react'
 
 const map = {
   wallet: WalletCards,
@@ -6,6 +17,11 @@ const map = {
   arrows: ArrowLeftRight,
   scale: Scale,
   file: FileText,
+  zap: Zap,
+  target: Target,
+  shield: ShieldCheck,
+  globe: Globe,
+  phone: Smartphone,
 }
 
 export default function Icon({ name, ...props }) {
